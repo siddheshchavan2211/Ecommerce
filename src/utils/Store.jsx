@@ -13,7 +13,6 @@ Store.subscribe(() => {
   const state = Store.getState();
   const cartItems = state.cart.items;
 
-  // Save to localStorage
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 });
 

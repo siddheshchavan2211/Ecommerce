@@ -7,7 +7,6 @@ const cartSlice = createSlice({
     items: savedCart || [],
   },
   reducers: {
-    // Add or increase item quantity
     addItem: (state, action) => {
       const existing = state.items.find(
         (item) => item.id === action.payload.id
@@ -21,17 +20,14 @@ const cartSlice = createSlice({
       }
     },
 
-    // Remove item entirely
     removeItem: (state, action) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
 
-    // Clear all items
     clearCart: (state) => {
       state.items = [];
     },
 
-    // Increase quantity (max 5)
     incrementQuantity: (state, action) => {
       const item = state.items.find((item) => item.id === action.payload);
       if (item && item.quantity < 5) {
@@ -39,7 +35,6 @@ const cartSlice = createSlice({
       }
     },
 
-    // Decrease quantity or remove if reaches 0
     decrementQuantity: (state, action) => {
       const item = state.items.find((item) => item.id === action.payload);
       if (item) {
